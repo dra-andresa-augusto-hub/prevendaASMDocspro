@@ -3,612 +3,635 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASM DOCS Universal - Documentos Clínicos Profissionais</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>ASM DOCS Pro - Dra. Andresa Augusto</title>
     <style>
-        :root {
-            --navy: #1e3a5f;
-            --navy-light: #2c5282;
-            --gold: #c9a227;
-            --gold-light: #e0c158;
-            --gray: #f7fafc;
-            --gray-dark: #4a5568;
-            --white: #ffffff;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
+        :root {
+            --navy: #0d1b2a;
+            --navy-light: #1b263b;
+            --navy-medium: #415a77;
+            --gold: #c9a227;
+            --gold-light: #e0c97f;
+            --white: #ffffff;
+            --gray: #f8f9fa;
+            --gray-medium: #e9ecef;
+            --text: #212529;
+        }
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--white);
-            color: var(--navy);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            color: var(--text);
+            background: var(--white);
+            overflow-x: hidden;
         }
         
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-            padding: 5rem 2rem;
-            text-align: center;
+        /* Navegação suave entre seções */
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 20px;
             position: relative;
-            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
         }
         
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(201,162,39,0.15) 0%, transparent 70%);
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .logo-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(201,162,39,0.2);
-            border: 1px solid var(--gold);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            color: var(--gold);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--white);
-            margin-bottom: 1rem;
-            line-height: 1.1;
-        }
-        
-        .hero h1 span {
-            color: var(--gold);
-        }
-        
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .price-highlight {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(201,162,39,0.3);
-            border-radius: 20px;
-            padding: 2rem;
-            display: inline-block;
-            margin-bottom: 2rem;
-        }
-        
-        .price-original {
-            text-decoration: line-through;
-            color: rgba(255,255,255,0.6);
-            font-size: 1.3rem;
-        }
-        
-        .price-current {
-            font-size: 4rem;
-            font-weight: 800;
-            color: var(--gold);
-        }
-        
-        .price-current small {
-            font-size: 1.5rem;
-        }
-        
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-            color: var(--navy);
-            padding: 1.5rem 3rem;
-            border-radius: 15px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-decoration: none;
-            box-shadow: 0 10px 30px rgba(201,162,39,0.4);
-            transition: all 0.3s ease;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(201,162,39,0.5);
-        }
-        
-        /* Value Prop */
-        .value-section {
-            padding: 5rem 2rem;
-            background: var(--gray);
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
+            width: 100%;
+        }
+        
+        /* PÁGINA 1 - APRESENTAÇÃO INSTITUCIONAL */
+        .page-1 {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, var(--navy-medium) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .page-1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(201,162,39,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(201,162,39,0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .brand-header {
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo-circle {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            box-shadow: 0 10px 40px rgba(201,162,39,0.3);
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+        
+        .logo-circle span {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--navy);
+        }
+        
+        .brand-name {
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .brand-name strong {
+            font-weight: 700;
+            color: var(--gold);
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .intro-text {
+            max-width: 700px;
+            margin: 50px auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        
+        .intro-text p {
+            margin-bottom: 20px;
+        }
+        
+        .signature {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(201,162,39,0.3);
+        }
+        
+        .signature-name {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .signature-title {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        
+        .signature-reg {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0.6;
+            animation: bounce 2s infinite;
+            font-size: 2rem;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        /* PÁGINA 2 - FUNCIONALIDADES */
+        .page-2 {
+            background: var(--gray);
         }
         
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 60px;
         }
         
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--navy);
-            margin-bottom: 1rem;
-        }
-        
-        .section-header p {
-            color: var(--gray-dark);
-            font-size: 1.1rem;
-        }
-        
-        .value-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-        
-        .value-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-        
-        .value-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-        
-        .value-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: var(--gold);
-        }
-        
-        .value-card h3 {
-            color: var(--navy);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .value-card p {
-            color: var(--gray-dark);
-            font-size: 0.95rem;
-        }
-        
-        /* Comparison */
-        .comparison {
-            padding: 5rem 2rem;
-            background: var(--white);
-        }
-        
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .comp-card {
-            border-radius: 25px;
-            padding: 3rem;
-        }
-        
-        .comp-card.without {
-            background: var(--gray);
-            border: 2px solid #e2e8f0;
-        }
-        
-        .comp-card.with {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-            color: var(--white);
-            position: relative;
-        }
-        
-        .comp-card.with::after {
-            content: 'MELHOR ESCOLHA';
-            position: absolute;
-            top: -12px;
-            right: 30px;
-            background: var(--gold);
-            color: var(--navy);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-        
-        .comp-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .comp-icon {
+        .section-number {
+            display: inline-block;
             width: 50px;
             height: 50px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--navy);
+            border-radius: 50%;
+            line-height: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
         }
         
-        .without .comp-icon {
-            background: #fed7d7;
-            color: #c53030;
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--navy);
+            font-weight: 300;
+            margin-bottom: 15px;
         }
         
-        .with .comp-icon {
-            background: rgba(201,162,39,0.2);
-            color: var(--gold);
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+            margin: 20px auto;
         }
         
-        .comp-card h3 {
-            font-size: 1.5rem;
-        }
-        
-        .comp-list {
-            list-style: none;
-        }
-        
-        .comp-list li {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .with .comp-list li {
-            border-bottom-color: rgba(255,255,255,0.1);
-        }
-        
-        .comp-list li:last-child {
-            border-bottom: none;
-        }
-        
-        /* Professions */
-        .professions {
-            padding: 5rem 2rem;
-            background: var(--gray);
-        }
-        
-        .prof-grid {
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--gold);
+            transition: all 0.4s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .feature-card h3 {
+            color: var(--navy);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* PÁGINA 3 - PROFISSIONAIS */
+        .page-3 {
+            background: var(--white);
+        }
+        
+        .professionals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
         
         .prof-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 2rem;
+            background: var(--gray);
+            padding: 35px 25px;
+            border-radius: 12px;
             text-align: center;
+            transition: all 0.4s ease;
             border: 2px solid transparent;
-            transition: all 0.3s ease;
         }
         
         .prof-card:hover {
             border-color: var(--gold);
-            transform: translateY(-5px);
+            transform: translateY(-3px);
+            background: var(--white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
         
-        .prof-icon-box {
-            width: 80px;
-            height: 80px;
+        .prof-icon {
+            width: 70px;
+            height: 70px;
             background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
             color: var(--gold);
         }
         
-        .prof-card h4 {
+        .prof-card h3 {
             color: var(--navy);
-            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
         
         .prof-card p {
-            color: var(--gray-dark);
-            font-size: 0.9rem;
+            color: #777;
+            font-size: 0.95rem;
         }
         
-        /* Final CTA */
-        .final-cta {
-            padding: 5rem 2rem;
+        /* PÁGINA 4 - OFERTA */
+        .page-4 {
             background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
             text-align: center;
         }
         
-        .final-cta h2 {
-            color: var(--white);
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .final-cta h2 span {
-            color: var(--gold);
-        }
-        
-        .final-cta p {
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 2rem;
-        }
-        
-        .final-price {
-            background: rgba(255,255,255,0.1);
+        .offer-box {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(201,162,39,0.3);
             border-radius: 20px;
-            padding: 2rem;
+            padding: 50px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .offer-label {
             display: inline-block;
-            margin-bottom: 2rem;
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--navy-dark);
-            color: var(--white);
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-        
-        footer .copyright {
-            color: var(--gold);
+            background: var(--gold);
+            color: var(--navy);
+            padding: 8px 25px;
+            border-radius: 20px;
+            font-weight: bold;
             font-size: 0.9rem;
-            margin-top: 1rem;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
         }
         
+        .price-container {
+            margin: 30px 0;
+        }
+        
+        .price-old {
+            font-size: 1.8rem;
+            text-decoration: line-through;
+            opacity: 0.6;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .price-new {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+        
+        .price-cents {
+            font-size: 2rem;
+        }
+        
+        .price-note {
+            margin-top: 15px;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .bonus-box {
+            background: rgba(201,162,39,0.15);
+            border: 1px dashed var(--gold);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .bonus-title {
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .bonus-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .btn-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            color: var(--white);
+            padding: 22px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(37,211,102,0.3);
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37,211,102,0.4);
+        }
+        
+        .whatsapp-number {
+            margin-top: 25px;
+            font-size: 1.3rem;
+            color: var(--gold);
+        }
+        
+        .disclaimer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            opacity: 0.7;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Responsivo */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
+            .brand-name {
+                font-size: 2rem;
+                letter-spacing: 4px;
             }
             
-            .value-grid,
-            .prof-grid {
-                grid-template-columns: 1fr;
+            .section-title {
+                font-size: 1.8rem;
             }
             
-            .comparison-grid {
-                grid-template-columns: 1fr;
+            .price-new {
+                font-size: 3rem;
+            }
+            
+            .offer-box {
+                padding: 30px 20px;
+            }
+            
+            .feature-card {
+                padding: 30px 25px;
             }
         }
     </style>
 </head>
 <body>
-    <section class="hero">
-        <div class="hero-content">
-            <div class="logo-badge">
-                <i data-lucide="sparkles" style="width: 18px; height: 18px;"></i>
-                KIT COMPLETO DE DOCUMENTOS CLÍNICOS
-            </div>
-            
-            <h1>
-                Seus documentos clínicos
-                <span>profissionais em segundos</span>
-            </h1>
-            
-            <p class="hero-subtitle">
-                Pare de perder tempo criando documentos do zero. 
-                Tenha acesso a mais de 50 modelos profissionais validados para sua área da saúde.
-            </p>
-            
-            <div class="price-highlight">
-                <div class="price-original">De R$ 227,90</div>
-                <div class="price-current">
-                    <small>R$</small>167,90
+
+    <!-- PÁGINA 1: APRESENTAÇÃO INSTITUCIONAL -->
+    <section class="section page-1">
+        <div class="container">
+            <div class="brand-header">
+                <div class="logo-circle">
+                    <span>ASM</span>
                 </div>
-                <p style="color: rgba(255,255,255,0.8); margin-top: 0.5rem;">Pagamento único</p>
+                <h1 class="brand-name">ASM <strong>DOCS</strong> Pro</h1>
+                <p class="tagline">Documentos Clínicos Inteligentes</p>
             </div>
             
-            <br>
+            <div class="intro-text">
+                <p>
+                    A documentação clínica é a espinha dorsal de qualquer prática profissional 
+                    na saúde. Ela protege você, organiza seu trabalho e transmite segurança 
+                    aos seus pacientes.
+                </p>
+                <p>
+                    O <strong>ASM DOCS Pro</strong> nasceu da necessidade real de ter um sistema 
+                    completo, profissional e acessível, que atenda desde o fisioterapeuta até 
+                    o médico, passando por psicólogos, nutricionistas e outros profissionais.
+                </p>
+                <p style="color: var(--gold-light); font-style: italic; margin-top: 30px;">
+                    "Criei este sistema para resolver um problema que eu mesma tinha: 
+                    a falta de um prontuário eletrônico realmente completo e fácil de usar."
+                </p>
+            </div>
             
-            <a href="https://wa.me/5531997867911?text=Olá! Quero garantir meu ASM DOCS Universal por R$167,90" class="cta-button" target="_blank">
-                <i data-lucide="zap" style="width: 24px; height: 24px;"></i>
-                GARANTIR MEU ACESSO
-            </a>
+            <div class="signature">
+                <div class="signature-name">Dra. Andresa Augusto</div>
+                <div class="signature-title">Fisioterapeuta | CREFITO 40.9314-F</div>
+                <div class="signature-reg">Desenvolvedora do ASM Gestão Clínica</div>
+            </div>
         </div>
+        <div class="scroll-hint">↓</div>
     </section>
 
-    <section class="value-section">
+    <!-- PÁGINA 2: FUNCIONALIDADES -->
+    <section class="section page-2">
         <div class="container">
             <div class="section-header">
-                <h2>Por que escolher o ASM DOCS?</h2>
-                <p>Desenvolvido por quem entende da rotina clínica</p>
+                <div class="section-number">02</div>
+                <h2 class="section-title">O Que Você Encontra no Sistema</h2>
             </div>
             
-            <div class="value-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i data-lucide="clock" style="width: 32px; height: 32px;"></i>
-                    </div>
-                    <h3>Economize Tempo</h3>
-                    <p>Documentos que levavam 30 minutos agora prontos em 2 minutos. Mais tempo para seus pacientes.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Documentos por Especialidade</h3>
+                    <p>Cada profissão tem acesso a documentos específicos: avaliações, evoluções, altas, atestados e termos de consentimento adequados à sua prática.</p>
                 </div>
                 
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i data-lucide="award" style="width: 32px; height: 32px;"></i>
-                    </div>
-                    <h3>Profissionalismo</h3>
-                    <p>Documentos com layout profissional que transmitem credibilidade e confiança aos seus pacientes.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">👤</div>
+                    <h3>Gestão de Pacientes</h3>
+                    <p>Cadastro completo com histórico clínico, evoluções ilimitadas e prontuário eletrônico integrado, tudo organizado e acessível.</p>
                 </div>
                 
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i data-lucide="shield-check" style="width: 32px; height: 32px;"></i>
-                    </div>
-                    <h3>Segurança Legal</h3>
-                    <p>Todos os documentos seguem as normativas dos conselhos profissionais (CFM, CREFITO, CRN, etc).</p>
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>PDFs Profissionais</h3>
+                    <p>Gere documentos em PDF com layout profissional, prontos para impressão, assinatura digital ou envio direto ao paciente.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Integração WhatsApp</h3>
+                    <p>Envie documentos e relatórios diretamente para os pacientes via WhatsApp com poucos cliques, direto do sistema.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Segurança Real</h3>
+                    <p>Acesso por CPF + código de ativação único. Seus dados ficam seguros na nuvem, acessíveis apenas por você.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Acesso em Qualquer Dispositivo</h3>
+                    <p>Use no celular, tablet ou computador. O sistema é 100% online e responsivo, funcionando perfeitamente onde você estiver.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="comparison">
+    <!-- PÁGINA 3: PROFISSIONAIS -->
+    <section class="section page-3">
         <div class="container">
             <div class="section-header">
-                <h2>Como está sua rotina?</h2>
-                <p>Compare sua realidade atual com o que você pode ter</p>
+                <div class="section-number">03</div>
+                <h2 class="section-title">Para Quem Foi Criado</h2>
+                <p style="color: #666; max-width: 600px; margin: 20px auto 0;">
+                    O ASM DOCS Pro atende profissionais da saúde que precisam de documentação 
+                    clínica completa e organizada.
+                </p>
             </div>
             
-            <div class="comparison-grid">
-                <div class="comp-card without">
-                    <div class="comp-header">
-                        <div class="comp-icon">
-                            <i data-lucide="x" style="width: 24px; height: 24px;"></i>
-                        </div>
-                        <h3>Sem o ASM DOCS</h3>
-                    </div>
-                    <ul class="comp-list">
-                        <li><i data-lucide="x-circle" style="width: 20px; height: 20px; color: #c53030;"></i> <span>Horas perdidas com documentação</span></li>
-                        <li><i data-lucide="x-circle" style="width: 20px; height: 20px; color: #c53030;"></i> <span>Documentos amadores</span></li>
-                        <li><i data-lucide="x-circle" style="width: 20px; height: 20px; color: #c53030;"></i> <span>Risco de não conformidade</span></li>
-                        <li><i data-lucide="x-circle" style="width: 20px; height: 20px; color: #c53030;"></i> <span>Prontuários desorganizados</span></li>
-                    </ul>
+            <div class="professionals-grid">
+                <div class="prof-card">
+                    <div class="prof-icon">🦴</div>
+                    <h3>Fisioterapeutas</h3>
+                    <p>Avaliações, evoluções diárias, relatórios de alta e documentação completa do tratamento.</p>
                 </div>
                 
-                <div class="comp-card with">
-                    <div class="comp-header">
-                        <div class="comp-icon">
-                            <i data-lucide="check" style="width: 24px; height: 24px;"></i>
-                        </div>
-                        <h3>Com o ASM DOCS</h3>
-                    </div>
-                    <ul class="comp-list">
-                        <li><i data-lucide="check-circle" style="width: 20px; height: 20px; color: var(--gold);"></i> <span>Documentos em 2 minutos</span></li>
-                        <li><i data-lucide="check-circle" style="width: 20px; height: 20px; color: var(--gold);"></i> <span>Layout profissional impecável</span></li>
-                        <li><i data-lucide="check-circle" style="width: 20px; height: 20px; color: var(--gold);"></i> <span>Dentro de todas as normas</span></li>
-                        <li><i data-lucide="check-circle" style="width: 20px; height: 20px; color: var(--gold);"></i> <span>Tudo organizado na nuvem</span></li>
-                    </ul>
+                <div class="prof-card">
+                    <div class="prof-icon">🧠</div>
+                    <h3>Psicólogos</h3>
+                    <p>Prontuários, anamneses, relatórios psicológicos e documentação específica para a prática clínica.</p>
+                </div>
+                
+                <div class="prof-card">
+                    <div class="prof-icon">🩺</div>
+                    <h3>Médicos</h3>
+                    <p>Atestados, receituários, relatórios médicos e toda documentação necessária à prática médica.</p>
+                </div>
+                
+                <div class="prof-card">
+                    <div class="prof-icon">🥗</div>
+                    <h3>Nutricionistas</h3>
+                    <p>Avaliações nutricionais, planos alimentares e acompanhamento evolutivo do paciente.</p>
+                </div>
+                
+                <div class="prof-card">
+                    <div class="prof-icon">🗣️</div>
+                    <h3>Fonoaudiólogos</h3>
+                    <p>Avaliações específicas, evoluções terapêuticas e relatórios fonoaudiológicos completos.</p>
+                </div>
+                
+                <div class="prof-card">
+                    <div class="prof-icon">🤲</div>
+                    <h3>Terapeutas Ocupacionais</h3>
+                    <p>Documentação especializada para reabilitação, adaptações e acompanhamento terapêutico.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="professions">
+    <!-- PÁGINA 4: OFERTA -->
+    <section class="section page-4">
         <div class="container">
-            <div class="section-header">
-                <h2>Para qual profissão você precisa?</h2>
-                <p>Documentos específicos para cada área da saúde</p>
-            </div>
-            
-            <div class="prof-grid">
-                <div class="prof-card">
-                    <div class="prof-icon-box">
-                        <i data-lucide="activity" style="width: 36px; height: 36px;"></i>
-                    </div>
-                    <h4>Fisioterapia</h4>
-                    <p>Avaliações, evoluções, altas e mais</p>
+            <div class="offer-box">
+                <div class="offer-label">ACESSO VITALÍCIO</div>
+                
+                <h2 style="font-size: 2rem; margin-bottom: 10px; font-weight: 300;">Invista na Organização da Sua Clínica</h2>
+                <p style="opacity: 0.8; margin-bottom: 30px;">Um sistema completo que vai profissionalizar seu atendimento</p>
+                
+                <div class="price-container">
+                    <span class="price-old">R$ 297,00</span>
+                    <div class="price-new">R$ 197<span class="price-cents">,00</span></div>
+                    <div class="price-note">Pagamento único • Use para sempre</div>
                 </div>
                 
-                <div class="prof-card">
-                    <div class="prof-icon-box">
-                        <i data-lucide="apple" style="width: 36px; height: 36px;"></i>
+                <div class="bonus-box">
+                    <div class="bonus-title">🎁 BÔNUS ESPECIAL</div>
+                    <div class="bonus-text">
+                        Caso haja atualizações do sistema nos próximos 6 meses, 
+                        você as receberá <strong>gratuitamente</strong>. 
+                        Um presente para quem adquirir agora.
                     </div>
-                    <h4>Nutrição</h4>
-                    <p>Anamneses, planos alimentares, avaliações</p>
                 </div>
                 
-                <div class="prof-card">
-                    <div class="prof-icon-box">
-                        <i data-lucide="brain" style="width: 36px; height: 36px;"></i>
-                    </div>
-                    <h4>Psicologia</h4>
-                    <p>Anamneses, evoluções, encaminhamentos</p>
+                <a href="https://wa.me/5531997867911?text=Olá! Quero adquirir o ASM DOCS Pro por R$197. Meu nome é:" 
+                   class="btn-cta" target="_blank">
+                    Quero Adquirir Agora
+                </a>
+                
+                <div class="whatsapp-number">
+                    📱 (31) 99786-7911
                 </div>
                 
-                <div class="prof-card">
-                    <div class="prof-icon-box">
-                        <i data-lucide="stethoscope" style="width: 36px; height: 36px;"></i>
-                    </div>
-                    <h4>Medicina</h4>
-                    <p>Atestados, prescrições, relatórios</p>
-                </div>
-                
-                <div class="prof-card">
-                    <div class="prof-icon-box">
-                        <i data-lucide="mic" style="width: 36px; height: 36px;"></i>
-                    </div>
-                    <h4>Fonoaudiologia</h4>
-                    <p>Avaliações, laudos, evoluções</p>
-                </div>
-                
-                <div class="prof-card">
-                    <div class="prof-icon-box">
-                        <i data-lucide="hand" style="width: 36px; height: 36px;"></i>
-                    </div>
-                    <h4>Terapia Ocupacional</h4>
-                    <p>Avaliações, planos terapêuticos</p>
+                <div class="disclaimer">
+                    <p><strong>Importante:</strong> Esta é uma compra de produto digital. 
+                    Você recebe acesso imediato ao sistema completo com todas as funcionalidades 
+                    descritas. O acesso é vitalício - pague uma vez, use para sempre.</p>
+                    <p style="margin-top: 15px;">
+                        © 2026 ASM Gestão Clínica - Dra. Andresa Augusto<br>
+                        Proibida reprodução sem autorização
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="final-cta">
-        <h2>Pronto para <span>profissionalizar</span> seus documentos?</h2>
-        <p>Invista na sua imagem profissional e na satisfação dos seus pacientes</p>
-        
-        <div class="final-price">
-            <div style="color: rgba(255,255,255,0.7); text-decoration: line-through; font-size: 1.2rem;">R$ 227,90</div>
-            <div style="font-size: 3.5rem; font-weight: 800; color: var(--gold);">
-                <small style="font-size: 1.5rem;">R$</small>167,90
-            </div>
-        </div>
-        
-        <br>
-        
-        <a href="https://wa.me/5531997867911?text=Olá! Quero garantir meu ASM DOCS Universal por R$167,90" class="cta-button" target="_blank">
-            <i data-lucide="shopping-cart" style="width: 24px; height: 24px;"></i>
-            QUERO MEU ASM DOCS AGORA
-        </a>
-        
-        <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
-            Atendimento: Segunda a Sexta, 8h às 18h
-        </p>
-    </section>
-
-    <footer>
-        <p style="font-size: 1.2rem; font-weight: 600;">ASM DOCS Universal</p>
-        <p class="copyright">© 2026 - Proibida reprodução sem autorização</p>
-    </footer>
-
-    <script>
-        lucide.createIcons();
-    </script>
 </body>
 </html>
